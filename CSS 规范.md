@@ -2,6 +2,9 @@
 
 # CSS 规范
 
+### 文件命名规则
+- 与`html`文件命名规则一样，采用小驼峰，比如：`index.css, orderDetail.css`
+
 ### css样式引入方式
 
 - 推荐使用link引入外部css样式文件到`head`标签中
@@ -10,25 +13,135 @@
 
 ### class命名空间
 
- - 页面采用`p-`的命名空间，比如`p-home, p-about, p-pay`, p = page;
- <br />
- - 通用的组件使用`c-`的命名空间。 比如`c-popup, c-nav, c-slidebar`, c = component;
- <br />
- - 通用工具类的统一使用`t-`的命名空间。比如`t-clearfix, t-ellipsis`, t = tool;
- <br />
- - 状态类的使用`s-`的命名空间。 比如： `s-current, s-active` s = status;
- <br />
- - js钩子类的使用`j-`的命名空间。一般用于需要提供给ios，类似于用于写业务逻辑。使用了react，除非必要，不要使用。 比如： `j-name， j-doc`。 j = javascrpt.
- <br />
- -  这种命名方式，最多只能拥有俩个破折号，即`p-about-head`。页面下其他的功能，依次向下类推，
- 比如`about`页面的`head`区域有个`sell`的类名，推荐使用`about-head-sell`这样的风格去命名。
+- 页面采用`p-`的命名空间，比如`p-home, p-about, p-pay`, p = page;
+<br />
+- 通用的组件使用`c-`的命名空间。 比如`c-popup, c-nav, c-slidebar`, c = component/common;
+<br />
+- 通用工具类的统一使用`t-`的命名空间。比如`t-clearfix, t-ellipsis`, t = tool;
+<br />
+- 状态类的使用`s-`的命名空间。 比如： `s-current, s-active` s = status;
+<br />
+- js钩子类的使用`j-`的命名空间。一般用于需要提供给ios，类似于用于写业务逻辑。使用了react，除非必要，不要使用。 比如： `j-name， j-doc`。 j = javascrpt.
+<br />
+- 这种命名方式，最多只能拥有俩个破折号，即`p-about-head`。页面下其他的功能，依次向下类推，
+比如`about`页面的`head`区域有个`contact`的类名，推荐使用`about-head-contact`这样的风格去命名。
  
  > **注意**：类名的命名方式，应该以语义化为前提，不要出现类似取每个汉字首字母拼音的方式命名，不利于阅读和维护。
 
-**所有的class命名以此为标准，全部采取英文小写, 尽量避免使用`数字`，不允许出现`大写`和类似`_拼接`和`驼峰命名法`**
+**尽量避免使用id，如必须使用则区分`class`命名，采用小驼峰，如，`#myDialog`**
+**所有的class命名以此为标准，全部采取英文小写, 英文之间用`-`连接, 尽量避免使用`数字`，不允许出现`大写`和类似`_拼接`和`驼峰命名法`**
+
+### 统一语义理解和命名
+
+- 布局（`.g-`）
+| 语义 | 命名 |
+| :--- | ---:|
+| 文档 | doc |
+| 头部 | head |
+| 主体 | body |
+| 尾部 | footer |
+| 主栏 | main |
+| 侧栏 | side |
+| 盒容器 | warp/box |
+
+- 模块（`m-`）, 组件（`c-`）
+| 语义 | 命名 |
+| :--- | ---: |
+| 导航 | nav |
+| 子导航 | subnav |
+| 面包屑 | crumb |
+| 菜单 | menu |
+| 选项卡 | tab |
+| 标题区 | head/title |
+| 内容区 | body/content |
+| 列表 | list |
+| 表格 | table |
+| 表单 | form |
+| 热点 | hot |
+| 登录 | login |
+| 注册 | register |
+| 幻灯 | slide |
+| 排行 | rank |
+| 标志 | logo |
+| 图标 | icon |
+| 搜索 | search |
+| 提示 | tips |
+| 帮助 | help |
+| 新闻 | news |
+| 栏目 | column |
+| 下载 | download |
+| 上传 | upload |
+| 广告 | advertise |
+
+- 功能 （`f-`）
+| 语义 | 命名 |
+| :--- | ---: |
+| 清除浮动 | clear-float
+| 左浮动 | float-left
+| 内联 | inline-block
+| 文本居中 | align-center
+| 垂直居中 | vertical--middle
+| 溢出隐藏 | overflow-hidden
+| 完全消失 | display-none
+| 字体大小 | font-size
+| 字体粗细 | font-weight
+
+- 状态（`s-`）
+| 语义 | 命名 |
+| :--- | ---: |
+| 选中 | selected |
+| 当前 | current/active |
+| 显示 | show |
+| 隐藏 | hide |
+| 打开 | open |
+| 关闭 | close |
+| 出错 | error |
+| 禁用 | disabled |
+
+### css属性的书写顺序
+
+1. 显示属性, 如：`display`
+2. 定位属性, 如：`position, top, left, right, bottom, z-index`
+3. 盒模型属性, 如：`width, height, margin, padding, border`
+4. 字体属性, 如：`font-size, font-weight, font-family`
+5. 背景属性, 如：`background-color, opacity`
+
+```css
+/** not good **/
+.element {
+    width: 100px;
+    height: 100px;
+    font-size: 20px;
+    display: inline-block;
+    position: relative;
+    top: 50px;
+    left: 50px;
+    border-radius: 5px;
+    z-index: 5;
+    background: #fff;
+    margin: 10px;
+    padding: 20px;
+}
+
+/** better **/
+.element {
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    background: #fff;
+}
+```
 
 ### 数值与长度单位
-***
 
 **长度单位**
 
@@ -105,7 +218,6 @@
 ```
 
 ### 选择器
-***
 
 只有在必要的时候才将 class 限制在最近的父元素内
 ```css
@@ -218,9 +330,14 @@ css属性，每一条属性独占一行
 
 ### CSS属性
 
+**z-index**
+- 自己写的`z-index`的值不能超过 100 (通用组的除外);
+- 页面中的元素内容的`z-index`不能超过10(popup poptip除外)，需要按照内容定义1 2 3 4不允许直接使用如1000，9999;
+- `modal， toast, notice, popup, poptip`等通用组件的`z-index`需要按照内容使用 99以下，10以上的值（11,12,13，也可以小于10），不允许直接使用1000，9999之类大值;
+
 **font-family**
 
-使用`单引号`或`双引号`去括起来
+- 使用`单引号`或`双引号`去括起来
 ```css
 /* not good */
 body {
@@ -233,6 +350,10 @@ body {
 }
 ```
 
+**background-image**
+- background-image 的 url 内使用引号
+- 如果路径里面有空格，旧版 IE 是无法识别的，会导致路径失效，建议不管是否存在空格，都添加上单引号或者双引号：
+
 **!important**
 
-不要使用`!important`。
+- 尽量避免使用`!important`。

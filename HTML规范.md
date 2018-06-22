@@ -4,12 +4,12 @@
 
 ### 文件名命名规则
 
-- 使用小驼峰命名规则，如，`index.html、orderDetail.html`，命名尽量保持语义化，但是文件名不能过长。
+- 使用小驼峰命名规则，如，`index.html、orderDetail.html`，命名尽量保持语义化，但是文件名不宜过长。
 
 ### 基本结构
-- 文件应以<!DOCTYPE html>首行顶格开始，该标签告知浏览器文档所使用的是 HTML 规范。
-- 必须在head元素内部的meta标签内声明文档的字符编码charset, 如：<meta charset="UTF-8">，这句代码告诉浏览器应该此HTML文件使用的字符集是什么，如果不加此行代码，那么在浏览器中可能显示为乱码。
-- 强烈建议为 html 根元素指定 lang 属性，从而为文档设置正确的语言。这将有助于语音合成工具确定其所应该采用的发音，有助于翻译工具确定其翻译时所应遵守的规则等等。
+- 文件应以`<!DOCTYPE html>`首行顶格开始，该标签告知浏览器文档所使用的是 HTML 规范。
+- 必须在head元素内部的meta标签内声明文档的字符编码charset, 如：`<meta charset="UTF-8">`，这句代码告诉浏览器应该此HTML文件使用的字符集是什么，如果不加此行代码，那么在浏览器中可能显示为乱码。
+- 强烈建议为 `html` 根元素指定 `lang` 属性，从而为文档设置正确的语言。这将有助于语音合成工具确定其所应该采用的发音，有助于翻译工具确定其翻译时所应遵守的规则等等。
 - 在visual studio code编辑器中输入 `!` 然后按下 `tab` 键就会生成如下 `html` 代码
 ```html
 <!DOCTYPE html>
@@ -51,7 +51,7 @@
 
 ### 标签语义化
 
-** 语义化HTML：用最恰当的HTML元素标记的内容。**
+语义化HTML：用最恰当的HTML元素标记的内容。
 
 优点：
 1. 提升可访问性；
@@ -76,7 +76,7 @@
 - `<aside></aside>`标签：指定附注栏，包括引述、侧栏、指向文章的一组链接、广告、友情链接、相关产品列表等。
 - `<footer></footer>`标签：页脚，只有当父级是body时，才是整个页面的页脚。
 - `<address></address>`标签：作者、相关人士或组织的联系信息（电子邮件地址、指向联系信息页的链接）。
-- `<code></code>`标签：标记代码。包含示例代码或者文件名 （< &lt;  > &gt;）。
+- `<code></code>`标签：标记代码。包含示例代码或者文件名 （< `&lt`;  > `&gt;`）。
 - `<pre></pre>`标签：预格式化文本。保留文本固有的换行和空格。
 - `<progress></progress>`：完成进度。可通过js动态更新value。
 - `<dl>`标签，是一个包含术语定义以及描述的列表，通常用于展示词汇表或者元数据 (键-值对列表)。
@@ -117,7 +117,7 @@
 ### 标签标准
 
 - 正确闭合标签且必须闭合。
-- 应当以最严格的xhtml strict标准来嵌套，不如内联元素不能包含块级元素等等。
+- 应当以最严格的xhtml strict标准来嵌套，比如：内联元素不能包含块级元素等等。
 
 ```HTML
 <!-- 正确闭合标签 -->
@@ -163,9 +163,9 @@
 ```html
 <img src="imgUrl" alt="图片" />
 <audio controls>
-  <source src="horse.ogg" type="audio/ogg">
-  <source src="horse.mp3" type="audio/mpeg">
-  您的浏览器不支持 audio 元素。
+	<source src="horse.ogg" type="audio/ogg">
+	<source src="horse.mp3" type="audio/mpeg">
+	您的浏览器不支持 audio 元素。
 </audio>
 <video width="320" height="240" controls>
     <source src="movie.mp4" type="video/mp4">
