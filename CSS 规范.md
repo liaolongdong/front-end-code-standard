@@ -204,7 +204,7 @@ css属性，每一条属性独占一行
 
 ```css
 /* not good */
-.element p{
+.element p {
 	width:60px;
 	height :50px;
 }

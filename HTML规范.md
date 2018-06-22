@@ -2,9 +2,14 @@
 
 # HTML规范
 
+### 文件名命名规则
+
+- 使用小驼峰命名规则，如，`index.html、orderDetail.html`，命名尽量保持语义化，但是文件名不能过长。
+
 ### 基本结构
 - 文件应以<!DOCTYPE html>首行顶格开始，该标签告知浏览器文档所使用的是 HTML 规范。
 - 必须在head元素内部的meta标签内声明文档的字符编码charset, 如：<meta charset="UTF-8">，这句代码告诉浏览器应该此HTML文件使用的字符集是什么，如果不加此行代码，那么在浏览器中可能显示为乱码。
+- 强烈建议为 html 根元素指定 lang 属性，从而为文档设置正确的语言。这将有助于语音合成工具确定其所应该采用的发音，有助于翻译工具确定其翻译时所应遵守的规则等等。
 - 在visual studio code编辑器中输入 `!` 然后按下 `tab` 键就会生成如下 `html` 代码
 ```html
 <!DOCTYPE html>
@@ -21,70 +26,60 @@
 </html>
 ```
 
-### 布尔型属性
+### 引入 CSS 和 JavaScript 文件
 
-元素的布尔型属性如果有值，就是 `true`，如果没有值，就是 `false`。
+- 根据 `HTML5` 规范，在引入 `CSS` 和 `JavaScript` 文件时一般不需要指定 `type` 属性，因为 `text/css` 和 `text/javascript` 分别是它们的默认值。
+- `CSS` 文件引入放在 `</head>` 标签前
+- `JavaScript` 文件引入放在 `</body>` 标签前
 
-### 属性顺序
 
-HTML 属性应当按照以下给出的顺序依次排列，确保代码的易读性。
+### 属性
 
-- `class`
-- `id, name`
-- `data-*`
-- `src, for, type, href, value`
-- `title, alt`
-- `role, aria-*`
+- 属性和值全部小写，每个属性都必须有一个值，每个值必须加双引号。
+- 元素的布尔型属性如果有值，就是 `true`，如果没有值，就是 `false`。
+- HTML 属性应当按照以下给出的顺序依次排列，确保代码的易读性。
+	- `class`
+	- `id, name`
+	- `data-*`
+	- `src, for, type, href, value`
+	- `title, alt, placeholder`
+	- `required, readonly, disable`
+	- `role, aria-*`
 
-`class`用于标识高度可复用组件，因此应该排在首位。`id` 用于标识具体组件，应当谨慎使用（例如，页面内的书签），因此排在第二位。
-
-对于属性的定义，确保全部使用双引号，绝不要使用单引号。
-
-### 减少标签数量
-
-尽量不要套无用的标签，增加标签的数量，比如：
-```html
-/* bad */
-<span class='avatar'>
-	<img src='./123.png'>
-</span>
-
-/* better */
-<img class='avatar' src='./123.png'>
-```
+- `class`用于标识高度可复用组件，因此应该排在首位。`id` 用于标识具体组件，应当谨慎使用（例如，页面内的书签），因此排在第二位。
+- 一个标签上引用的className不要过多，越少越好。
 
 ### 标签语义化
 
-什么是标签语义化，简单来说。就是让正确的标签干正确的事儿。比如只有一行文本，就应该使用`P`标签，而列表就应该使用`ul`或者`ol`，视具体的场景而定。
+** 语义化HTML：用最恰当的HTML元素标记的内容。**
 
-#### img 标签
+优点：
+1. 提升可访问性；
+2. SEO；
+3. 结构清晰，利于维护；
 
-- `img` 标签， 应该使用`alt`,用于图片不显示或者图片发生错误时的`文字提示`。
+通用类HTML标签：`div` —— 块级通用容器；`span` —— 行内内容无语义容器。如果语义不合适，就直接用通用类标签。
 
-#### H1~H6标签
-
-> 
- - `H1` 每个页面只能有一个，有利于网络爬虫`SEO`。
- - 不要为了减小标题的字体而使用低级别的标题， 而是使用 CSS `font-size` 属性。
- - 避免跳过某级标题：始终要从` <h1>` 开始，接下来使用 `<h2>` 等等
- - 使用 `section` 的时候，应当每个 `section` 都使用一个 `<h2>`
-
-#### footer标签
-
-- `<footer>`元素内的作者信息应包含在`<address>` 元素中。
-
-#### div标签
-
->` <div>` 元素是一个通用型的流内容容器，它在语义上不代表任何特定类型的内容，它可以被用来对其它元素进行分组，一般用于样式化相关的需求（使用 class 或 id 特性) 或者对具有相同特性的一组元素进行分组 (比如 lang)，它应该在没有任何其它语义元素可用时才使用 (比如 `<article>` 或 `<nav>`) 。
-
-所以不能再这里面直接包含文字，如果需要包含一段文本，应该需要使用`P`标签来包裹。
-
-#### dl 自定义列表
-
-> `<dl>` 元素 是一个包含术语定义以及描述的列表，通常用于展示词汇表或者元数据 (键-值对列表)。
-
-#### 斜体标签的一些区别
-
+常用的语义化HTML标签：
+- `H1~H6`标签
+	> 
+	- `H1` 每个页面只能有一个，有利于网络爬虫`SEO`。
+	- 不要为了减小标题的字体而使用低级别的标题， 而是使用 CSS `font-size` 属性。
+	- 避免跳过某级标题：始终要从` <h1>` 开始，接下来使用 `<h2>` 等等。
+	- 使用 `section` 的时候，应当每个 `section` 都使用一个 `<h2>`。
+- `<header></header>`标签：页眉通常包括网站标志、主导航、全站链接以及搜索框。
+- `<nav></nav>`标签：标记导航，仅对文档中重要的链接群使用。
+- `<p></p>`标签：包含一段文本段落。
+- `<main></main>`标签：页面主要内容，一个页面只能使用一次。如果是web应用，则包围其主要功能。
+- `<article></article>`标签：包含类似于文章类型的片段，表示文档、页面、应用或一个独立的容器， 可相互嵌套使用。
+- `<section></section>`标签：具有相似主题的一组内容，比如网站的主页可以分成介绍、新闻条目、联系信息等条块。
+- `<aside></aside>`标签：指定附注栏，包括引述、侧栏、指向文章的一组链接、广告、友情链接、相关产品列表等。
+- `<footer></footer>`标签：页脚，只有当父级是body时，才是整个页面的页脚。
+- `<address></address>`标签：作者、相关人士或组织的联系信息（电子邮件地址、指向联系信息页的链接）。
+- `<code></code>`标签：标记代码。包含示例代码或者文件名 （< &lt;  > &gt;）。
+- `<pre></pre>`标签：预格式化文本。保留文本固有的换行和空格。
+- `<progress></progress>`：完成进度。可通过js动态更新value。
+- `<dl>`标签，是一个包含术语定义以及描述的列表，通常用于展示词汇表或者元数据 (键-值对列表)。
 - `<em>` 表示强调或重读。
 - `<strong>` 表示重要性。
 - `<mark>` 表示相关性。
@@ -94,7 +89,7 @@ HTML 属性应当按照以下给出的顺序依次排列，确保代码的易读
 
 #### （ol）有序列表和（ul）无序列表
 
-很多时候，有序列表有很多自带的序列样式可设置，但是经常在开发中看见自己去定义序列号, 而`ul`代表多项的`无序列表`，即无数值排序项的集合，且它们在列表中的顺序是没有意义的。比如：
+- 很多时候，有序列表有很多自带的序列样式可设置，但是经常在开发中看见自己去定义序列号, 而`ul`代表多项的`无序列表`，即无数值排序项的集合，且它们在列表中的顺序是没有意义的。比如：
 ```js
 /* bad */
 <ul>
@@ -105,7 +100,7 @@ HTML 属性应当按照以下给出的顺序依次排列，确保代码的易读
 </ul>
 
 /* better */
-<ol class='txt-list' type='1'>
+<ol class='list' type='1'>
 	<li>第一段文本！！！</li>
 	<li>第二段文本！！！</li>
 	<li>第三段文本！！！</li>
@@ -113,13 +108,78 @@ HTML 属性应当按照以下给出的顺序依次排列，确保代码的易读
 </ol>
 
 /* css样式写法 */
-.txt-list {
+.list {
 	list-style-type: decimal
 }
+```
+更多的样式属性去MDN查看或者[w3school](http://www.w3school.com.cn/cssref/pr_list-style-type.asp)
+
+### 标签标准
+
+- 正确闭合标签且必须闭合。
+- 应当以最严格的xhtml strict标准来嵌套，不如内联元素不能包含块级元素等等。
+
+```HTML
+<!-- 正确闭合标签 -->
+<!-- bad -->
+<p>段落文本
+<img src="imgUrl" alt="图片" >
+<input type="text" placeholder="占位符" >
+
+<!-- better -->
+<p>段落文本</p>
+<img src="imgUrl" alt="图片" />
+<input type="text" placeholder="占位符" />
+
+<!-- 避免内联元素中包含块级元素 -->
+<!-- bad -->
+<span>
+	<div>内容</div>
+</span>
+
+<!-- better -->
+<div>
+	<span>内容</span>
+</div>
+```
+
+### 减少标签数量
+
+- 尽量不要套无用的标签，增加标签的数量，比如：
+```html
+/* bad */
+<span class='avatar'>
+	<img src='./123.png'>
+</span>
+
+/* better */
+<img class='avatar' src='./123.png'>
+```
+
+#### img、audio、video标签
+
+- `img` 标签， 应该使用`alt`,用于图片不显示或者图片发生错误时的`文字提示`。
+- `audio、video` 标签，加入文案和链接。
+```html
+<img src="imgUrl" alt="图片" />
+<audio controls>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+  您的浏览器不支持 audio 元素。
+</audio>
+<video width="320" height="240" controls>
+    <source src="movie.mp4" type="video/mp4">
+    <source src="movie.ogg" type="video/ogg">
+    您的浏览器不支持 video 标签。
+</video>
 ```
 
 ### 避免使用table布局
 
-不要使用table布局，现在基本上被淘汰了，而应该代之以div来布局，方便控制。
+- 不要使用table布局，现在基本上被淘汰了，而应该代之以div来布局，方便控制。
 
-更多的样式属性去MDN查看或者[w3school](http://www.w3school.com.cn/cssref/pr_list-style-type.asp)
+### 避免使用iframe
+
+- 使用iframe会增加页面额外请求，影响性能
+- 使用iframe不利于seo搜索引擎优化
+- 使用iframe不利于代码维护
