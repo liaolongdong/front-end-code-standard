@@ -11,7 +11,7 @@
 
 对所有的引用使用 `const`；不要使用 `var`。
 > 能确保你无法对引用重新赋值，也不会导致出现 bug 或难以理解。
-```
+```js
 // bad
 var a = 1;
 var b = 2;
@@ -25,7 +25,7 @@ const b = 2;
 **let**
 
 如果你一定需要可变动的引用，使用` let `代替 `var`。
-```
+```js
 // bad
 var count = 1;
 if (true) {
@@ -44,7 +44,7 @@ if (true) {
 ***
 
 `const` 声明常量，使用大写字母来命名，下划线来组合`_`
-```
+```js
 // bad
 var successCode = 1;
 
@@ -58,7 +58,7 @@ const SUCCESS_CODE = 1;
 **声明方式**
 
 统一使用`字面量`的形式去声明（创建）
-```
+```js
 // bad
 const ownObj = new Object()
 const ownArr = new Array()
@@ -71,7 +71,7 @@ const ownArr = []
 **浅复制**
 
 使用扩展运算符`...`进行对象和数组的浅复制
-```
+```js
 // Array
 const oldArr = [];
 const newArr = [...oldArr];
@@ -86,7 +86,7 @@ const newObj = {...oldObj, c: 4};
 
 使用简写的属性和方法，这样更短更有描述性。
 简写的属性，应该写在开头。
-```
+```js
 // bad
 const otherValue = 2;
 const atom = {
@@ -110,7 +110,7 @@ const atom = {
 **数组的解构**
 
 使用数组的解构来存取某个值。
-```
+```js
 // bad
 const ownArr = [1, 2, 3, 4];
 const first = ownArr[0]
@@ -124,7 +124,7 @@ const {first, two} = ownArr
 ***
 
 字符串超过 `80 `个字节应该使用字符串连接号换行
-```
+```js
 // bad
 const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
@@ -134,7 +134,7 @@ const errorMessage = 'This is a super long error that was thrown because ' +
   'with this, you would get nowhere fast.';
 ```
 字符串和变量拼接时，使用模板字符串
-```
+```js
  // bad
 function sayHi(name) {
   return 'How are you, ' + name + '?';
@@ -152,7 +152,7 @@ function sayHi(name) {
 
 **字符串**
 
-```
+```js
 //  => this.reviewScore = 9;
 
 // bad
@@ -165,7 +165,7 @@ const totalScore = String(this.reviewScore);
 **数字**
 
 对数字使用 `parseInt `转换，并带上类型转换的基数。
-```
+```js
 const inputValue = '4';
 
 // bad
@@ -186,7 +186,7 @@ const val = parseInt(inputValue, 10);
 
 **布尔**
 
-```
+```js
 const age = 0;
 
 // bad
@@ -205,21 +205,21 @@ const hasAge = !!age;
 **描述性**
 
 避免单字母命名，命名应具备描述性。
-```
+```js
 // bad
 function q() {
   // ...stuff...
 }
 
 // good
-function query() {
+function query () {
   // ..stuff..
 }
 ```
 **驼峰式**
 
 使用`驼峰式(小驼峰，首字母小写)`命名对象、函数和实例
-```
+```js
 // bad
 const OBJEcttsssss = {};
 const this_is_my_object = {};
@@ -233,7 +233,7 @@ function thisIsMyFunction() {}
 **帕斯卡式**
 
 使用`帕斯卡式(大驼峰，首字母大写)`命名构造函数或类
-```
+```js
 // bad
 function user(options) {
   this.name = options.name;
@@ -257,7 +257,7 @@ const good = new User({
 **文件名与类名**
 
 如果你的文件只输出一个类，那你的`文件名`必须和`类名`完全保持一致。
-```
+```js
 // file contents
 class CheckBox {
   // ...
@@ -277,7 +277,7 @@ import CheckBox from './CheckBox';
 **文件名与函数名**
 
 当你导出默认的函数时使用驼峰式命名。你的`文件名`必须和`函数名`完全保持一致。
-```
+```js
 function makeStyleGuide() {
 }
 
@@ -303,7 +303,7 @@ export default makeStyleGuide;
 **|| 与 &&**
 
 当混合使用`||`操作符和`&&`操作符，合理的使用`()`进行分组。
-```
+```js
 // bad
  code === 1 && status === 2 || payCode === 3 && payStatus === 4
 
@@ -316,11 +316,11 @@ export default makeStyleGuide;
 
 **缩进**
 
-使用 `2 个`空格作为缩进。
-```
+使用 `4个`空格作为缩进。
+```js
 // bad
 function() {
-∙∙∙∙const name;
+∙∙const name;
 }
 
 // bad
@@ -329,8 +329,8 @@ function() {
 }
 
 // good
-function() {
-∙∙const name;
+function () {
+∙∙∙∙const name;
 }
 ```
 
@@ -344,7 +344,7 @@ function test(){
 }
 
 // good
-function test() {
+function test () {
   console.log('test');
 }
 
@@ -375,12 +375,12 @@ if (isJedi) {
 }
 
 // bad
-function fight () {
+function fight() {
   console.log ('Swooosh!');
 }
 
 // good
-function fight() {
+function fight () {
   console.log('Swooosh!');
 }
 ```
