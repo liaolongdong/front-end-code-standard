@@ -28,6 +28,7 @@
 ### 统一语义理解和命名
 
 - 布局（`.g-`）
+
 | 语义 | 命名 |
 | :--- | ---:|
 | 文档 | doc |
@@ -39,6 +40,7 @@
 | 盒容器 | warp/box |
 
 - 模块（`m-`）, 组件（`c-`）
+
 | 语义 | 命名 |
 | :--- | ---: |
 | 导航 | nav |
@@ -68,6 +70,7 @@
 | 广告 | advertise |
 
 - 功能 （`f-`）
+
 | 语义 | 命名 |
 | :--- | ---: |
 | 清除浮动 | clear-float
@@ -81,6 +84,7 @@
 | 字体粗细 | font-weight
 
 - 状态（`s-`）
+
 | 语义 | 命名 |
 | :--- | ---: |
 | 选中 | selected |
@@ -347,6 +351,17 @@ body {
 **background-image**
 - background-image 的 url 内使用引号
 - 如果路径里面有空格，旧版 IE 是无法识别的，会导致路径失效，建议不管是否存在空格，都添加上单引号或者双引号：
+```css
+/** not good **/
+.element {
+    background-image: url(/assets/images/icon.png);
+}
+
+/** better **/
+.element {
+    background-image: url('/assets/images/icon.png');
+}
+```
 
 **!important**
 
