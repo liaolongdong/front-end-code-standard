@@ -14,18 +14,12 @@
 ### class命名空间
 
 - 页面采用`p-`的命名空间，比如`p-home, p-about, p-pay`, p = page;
-<br />
 - 通用的组件使用`c-`的命名空间。 比如`c-popup, c-nav, c-slidebar`, c = component/common;
-<br />
 - 通用工具类的统一使用`t-`的命名空间。比如`t-clearfix, t-ellipsis`, t = tool;
-<br />
 - 状态类的使用`s-`的命名空间。 比如： `s-current, s-active` s = status;
-<br />
 - js钩子类的使用`j-`的命名空间。一般用于需要提供给ios，类似于用于写业务逻辑。使用了react，除非必要，不要使用。 比如： `j-name， j-doc`。 j = javascrpt.
-<br />
 - 这种命名方式，最多只能拥有俩个破折号，即`p-about-head`。页面下其他的功能，依次向下类推，
 比如`about`页面的`head`区域有个`contact`的类名，推荐使用`about-head-contact`这样的风格去命名。
- 
  > **注意**：类名的命名方式，应该以语义化为前提，不要出现类似取每个汉字首字母拼音的方式命名，不利于阅读和维护。
 
 **尽量避免使用id，如必须使用则区分`class`命名，采用小驼峰，如，`#myDialog`**
