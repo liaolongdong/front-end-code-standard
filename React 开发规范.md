@@ -166,6 +166,9 @@ class Demo extends Component {
 ### 纯组件
 什么是纯组件，简单来说就是一个只用于展示的数据，完全不需要去改变`props`和`state`的组件，比如：
 ```js
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 class Hello extends Component {
 	static defaultProps = {
 		text: 'better'
@@ -181,6 +184,8 @@ class Hello extends Component {
 		)
 	}
 }
+
+export default Hello;
 
 import Hello from './Hello';
 class ShowText extends Component {
