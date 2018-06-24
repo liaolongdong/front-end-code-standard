@@ -2,6 +2,94 @@
 
 # JS 规范
 
+### 命名规则
+***
+
+**描述性**
+
+避免单字母命名，命名应具备描述性。
+```js
+// bad
+let p = 1;
+function q () {
+  	// .code
+}
+
+// good
+let page = 1;
+function query () {
+	// code
+}
+```
+**驼峰式**
+
+使用`驼峰式(小驼峰，首字母小写)`命名对象、函数和实例
+```js
+// bad
+const OBJWhat = {};
+const this_is_my_object = {};
+function c () {}
+
+// good
+const thisIsMyObject = {};
+function thisIsMyFunction () {}
+```
+
+**帕斯卡式**
+
+使用`帕斯卡式(大驼峰，首字母大写)`命名构造函数或类
+```js
+// bad
+function person (options) {
+  	this.name = options.name;
+}
+
+const person = new person({
+  	name: 'better',
+});
+
+// good
+class Person {
+	constructor(options) {
+		this.name = options.name;
+	}
+}
+
+const person = new Person({
+  	name: 'better',
+});
+```
+**文件名与类名**
+
+如果文件默认导出一个类或react组件时使用大驼峰命名，`文件名`必须和`类名`完全保持一致。
+```js
+// file contents
+class CheckBox {
+  	// code
+}
+export default CheckBox;
+
+// in some other file
+// bad
+import CheckBox from './checkBox';
+
+// bad
+import CheckBox from './check_box';
+
+// good
+import CheckBox from './CheckBox';
+```
+**文件名与函数名**
+
+如果文件默认导出函数时使用小驼峰式命名。`文件名`必须和`函数名`完全保持一致。
+```js
+function myDefaultFunction() {
+	// code
+}
+
+export default myDefaultFunction;
+```
+
 ### 变量
 ***
 
@@ -29,13 +117,13 @@ const b = 2;
 // bad
 var count = 1;
 if (true) {
-  count += 1;
+  	count += 1;
 }
 
 // good
 let count = 1;
 if (true) {
-  count += 1;
+  	count += 1;
 }
 ```
  
@@ -89,21 +177,21 @@ const newObj = {...oldObj, c: 4};
 ```js
 // bad
 const otherValue = 2;
-const atom = {
-  value: 1,
-  otherValue: otherValue，
-  addValue: function (value) {
-    return atom.value + value;
-  },
+const obj = {
+	value: 1,
+	otherValue: otherValue，
+	addValue: function (value) {
+		return obj.value + value;
+	}
 };
 
 // good
-const atom = {
-  otherValue,
-  value: 1,
-  addValue(value) {
-    return atom.value + value;
-  },
+const obj = {
+	otherValue,
+	value: 1,
+	addValue(value) {
+		return obj.value + value;
+	}
 };
 ```
 
@@ -130,19 +218,19 @@ const errorMessage = 'This is a super long error that was thrown because of Batm
 
 // good
 const errorMessage = 'This is a super long error that was thrown because ' +
-  'of Batman. When you stop to think about how Batman had anything to do ' +
-  'with this, you would get nowhere fast.';
+  	'of Batman. When you stop to think about how Batman had anything to do ' +
+  	'with this, you would get nowhere fast.';
 ```
 字符串和变量拼接时，使用模板字符串
 ```js
  // bad
-function sayHi(name) {
-  return 'How are you, ' + name + '?';
+function sayHi (name) {
+  	return 'How are you, ' + name + '?';
 }
 
 // good
-function sayHi(name) {
-  return `How are you, ${name}?`;
+function sayHi (name) {
+  	return `How are you, ${name}?`;
 }
 ```
 
@@ -199,91 +287,6 @@ const hasAge = Boolean(age);
 const hasAge = !!age;
 ```
 
-### 命名规则
-***
-
-**描述性**
-
-避免单字母命名，命名应具备描述性。
-```js
-// bad
-function q() {
-  // ...stuff...
-}
-
-// good
-function query () {
-  // ..stuff..
-}
-```
-**驼峰式**
-
-使用`驼峰式(小驼峰，首字母小写)`命名对象、函数和实例
-```js
-// bad
-const OBJEcttsssss = {};
-const this_is_my_object = {};
-function c() {}
-
-// good
-const thisIsMyObject = {};
-function thisIsMyFunction() {}
-```
-
-**帕斯卡式**
-
-使用`帕斯卡式(大驼峰，首字母大写)`命名构造函数或类
-```js
-// bad
-function user(options) {
-  this.name = options.name;
-}
-
-const bad = new user({
-  name: 'nope',
-});
-
-// good
-class User {
-  constructor(options) {
-    this.name = options.name;
-  }
-}
-
-const good = new User({
-  name: 'yup',
-});
-```
-**文件名与类名**
-
-如果你的文件只输出一个类，那你的`文件名`必须和`类名`完全保持一致。
-```js
-// file contents
-class CheckBox {
-  // ...
-}
-export default CheckBox;
-
-// in some other file
-// bad
-import CheckBox from './checkBox';
-
-// bad
-import CheckBox from './check_box';
-
-// good
-import CheckBox from './CheckBox';
-```
-**文件名与函数名**
-
-当你导出默认的函数时使用驼峰式命名。你的`文件名`必须和`函数名`完全保持一致。
-```js
-function makeStyleGuide() {
-}
-
-export default makeStyleGuide;
-```
-
 ### 判断条件
 ***
 
@@ -298,7 +301,22 @@ export default makeStyleGuide;
 **三元操作符**
 
 禁止使用嵌套的 `三元操作符 (? :)`。
-~~` code === 1 ?  value = 1 : code === 2 ?  value = 2  :  code = 3 `~~
+```js
+// not good
+let value = 0;
+status === 1 ?  value = 1 : status === 2 ?  value = 2  :  status = 3
+
+// better
+let value = 0;
+if (status === 1) {
+  	value = 1;
+} else if (status === 2) {
+  	value = 2;
+} else {
+  	value = 3;
+}
+
+```
 
 **|| 与 &&**
 
@@ -319,12 +337,12 @@ export default makeStyleGuide;
 使用 `4个`空格作为缩进。
 ```js
 // bad
-function() {
+function () {
 ∙∙const name;
 }
 
 // bad
-function() {
+function () {
 ∙const name;
 }
 
@@ -337,55 +355,55 @@ function () {
 **缩进**
 
 在花括号前放一个空格。
-```
+```js
 // bad
-function test(){
-  console.log('test');
+function test () {
+  	console.log('test');
 }
 
 // good
 function test () {
-  console.log('test');
+  	console.log('test');
 }
 
 // bad
 dog.set('attr',{
-  age: '1 year',
-  breed: 'Bernese Mountain Dog',
+	age: '1 year',
+	breed: 'Bernese Mountain Dog',
 });
 
 // good
 dog.set('attr', {
-  age: '1 year',
-  breed: 'Bernese Mountain Dog',
+	age: '1 year',
+	breed: 'Bernese Mountain Dog'
 });
 ```
 
 在控制语句`（if、while 等）`的小括号前放一个空格。在函数调用及声明中，不在函数的参数列表前加空格。
 
-```
+```js
 // bad
-if(isJedi) {
-  fight ();
+if(passed) {
+	fight ();
 }
 
 // good
-if (isJedi) {
-  fight();
+if (passed) {
+	fight();
 }
 
 // bad
 function fight() {
-  console.log ('Swooosh!');
+  	console.log ('Swooosh!');
 }
 
 // good
 function fight () {
-  console.log('Swooosh!');
+  	console.log('Swooosh!');
 }
 ```
 使用空格把运算符(`— + = * / % === !== || && `)隔开。
-```
+```js
 // bad
 const x=y+5;
 const z= a===b&&c===d
@@ -393,4 +411,31 @@ const z= a===b&&c===d
 // good
 const x = y + 5;
 const z = a === b && c === d
+```
+
+### 请求数据
+
+返回一个promise, 可以使用async/await同步写法
+
+```js
+fetch('/userLogin', {
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json'
+	},
+	body: JSON.stringify({
+		name: 'better',
+		password: '123456',
+	})
+});
+
+async handleUserLogin () {
+	let result = await userLogin({
+		name: 'better',
+		password: '123456',
+	});
+	if (result) {
+		// code
+	}
+}
 ```

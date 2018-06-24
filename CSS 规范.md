@@ -284,6 +284,24 @@ table.some-tablexs tr:first-child td {
 	display: inline-block;
 }
 ```
+
+**禁止对纯元素选择器设置特定样式**
+
+除非是样式reset需要，禁止对纯元素选择器设置特定样式，避免样式污染
+
+```css
+/* 会导致页面所有的a标签都被加上背景 */
+a {
+    background: url(xxx);
+}
+
+ /* 后期修改可能会添加一些span标签，如果刚好在div里面，会被污染；不利于后期维护 */
+div span {
+    display: block;
+}
+```
+
+
 ### 格式化
 
 css属性，每一条属性独占一行
@@ -336,6 +354,7 @@ css属性，每一条属性独占一行
 **font-family**
 
 - 使用`单引号`或`双引号`去括起来
+> **提示**：移动端页面不需要设置微软雅黑、宋体等字体，终端浏览器字体取决于设备上的系统字体。
 ```css
 /* not good */
 body {

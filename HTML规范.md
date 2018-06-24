@@ -6,6 +6,24 @@
 
 - 使用小驼峰命名规则，如，`index.html、orderDetail.html`，命名尽量保持语义化，但是文件名不宜过长。
 
+### 图片命名
+
+- 图片名称必须小写，禁止使用特殊字符、中文。
+- 使用英文或拼音缩写，禁止特殊字符。
+- 名称间隔使用-符号。
+- 命名需要能体现图片的大概用途, 禁止文件名和实际图片内容不符。
+
+
+> 常用示例：
+
+	bg.jpg          //背景图片
+	mod-bg.jpg      //模块背景
+	sprites.png     //精灵图
+	btn-start.png   //开始按钮
+	ico-play.png    //修饰性图片
+
+> 反面例子：图片名为'weixin-qrcode'，图片内容却是头像。
+
 ### 基本结构
 - 文件应以`<!DOCTYPE html>`首行顶格开始，该标签告知浏览器文档所使用的是 HTML 规范。
 - 必须在head元素内部的meta标签内声明文档的字符编码charset, 如：`<meta charset="UTF-8">`，这句代码告诉浏览器应该此HTML文件使用的字符集是什么，如果不加此行代码，那么在浏览器中可能显示为乱码。
@@ -18,12 +36,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- 页面名称-产品中文全称-官方网站-产品名称-产品slogan，28个汉字以内 -->
     <title>Document</title>
+	<!-- 页面关键字(keywords) keywords为产品名、专题名、专题相关名词，之间用英文半角逗号隔开 -->
+	<meta name="keywords" content="家具拆装,家具配送,家具安装,家具维修"/>
+	<!-- 页面描述(description) 不超过150个字符，描述内容要和页面内容相关 -->
+	<meta name="description" content="万师傅是全国专业家居售后服务网站,提供【家具】【晾衣架】【灯具】【卫浴】【墙纸地毯】的拆装,搬运等服务担保交易;师傅覆盖全国600多个城市,快速,便捷,省钱,有保障！"/>
 </head>
 <body>
     
 </body>
 </html>
+```
+
+### 页面meta
+
+**PC端meta**
+
+```html
+<meta charset="utf-8">
+<!-- 优先使用 IE 最新版本和 Chrome -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- 这个网页可以被搜索引擎搜索到 -->
+<meta name="robots" content="all">
+<meta name="author" content="xiaoyi-better" />
+<meta name="copyright" content="xiaoyi" />
+<meta name="description" content="页面的描述内容" />
+<meta name="keywords" content="页面关键字" />
+```
+
+**移动端meta**
+
+```html
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<!-- 为了防止页面数字被识别为电话号码，可根据实际需要添加： -->
+<meta name="format-detection" content="telephone=no"> 
+<!-- 让添加到主屏幕的网页再次打开时全屏展示，可添加：   -->
+<meta name="mobile-web-app-capable" content="yes">
+<!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- 设置苹果工具栏颜色 -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<!-- 添加到主屏后的标题（iOS 6 新增） -->
+<meta name="apple-mobile-web-app-title" content="标题">
+<meta name="robots" content="all">
+<meta name="author" content="xiaoyi-better" />
+<meta name="copyright" content="xiaoyi" />
+<meta name="description" content="页面的描述内容" />
+<meta name="keywords" content="页面关键字" />
 ```
 
 ### 引入 CSS 和 JavaScript 文件
@@ -48,6 +109,36 @@
 
 - `class`用于标识高度可复用组件，因此应该排在首位。`id` 用于标识具体组件，应当谨慎使用（例如，页面内的书签），因此排在第二位。
 - 一个标签上引用的className不要过多，越少越好。
+
+### 标签标准
+
+- 正确闭合标签且必须闭合。
+- 应当以最严格的xhtml strict标准来嵌套，比如：内联元素不能包含块级元素等等。
+- 标签的自定义属性以data-开头，如：`<a href="#" data-num='18'></a>`。
+
+```HTML
+<!-- 正确闭合标签 -->
+<!-- bad -->
+<p>段落文本
+<img src="imgUrl" alt="图片" >
+<input type="text" placeholder="占位符" >
+
+<!-- better -->
+<p>段落文本</p>
+<img src="imgUrl" alt="图片" />
+<input type="text" placeholder="占位符" />
+
+<!-- 避免内联元素中包含块级元素 -->
+<!-- bad -->
+<span>
+	<div>内容</div>
+</span>
+
+<!-- better -->
+<div>
+	<span>内容</span>
+</div>
+```
 
 ### 标签语义化
 
@@ -114,35 +205,6 @@
 ```
 更多的样式属性去MDN查看或者[w3school](http://www.w3school.com.cn/cssref/pr_list-style-type.asp)
 
-### 标签标准
-
-- 正确闭合标签且必须闭合。
-- 应当以最严格的xhtml strict标准来嵌套，比如：内联元素不能包含块级元素等等。
-
-```HTML
-<!-- 正确闭合标签 -->
-<!-- bad -->
-<p>段落文本
-<img src="imgUrl" alt="图片" >
-<input type="text" placeholder="占位符" >
-
-<!-- better -->
-<p>段落文本</p>
-<img src="imgUrl" alt="图片" />
-<input type="text" placeholder="占位符" />
-
-<!-- 避免内联元素中包含块级元素 -->
-<!-- bad -->
-<span>
-	<div>内容</div>
-</span>
-
-<!-- better -->
-<div>
-	<span>内容</span>
-</div>
-```
-
 ### 减少标签数量
 
 - 尽量不要套无用的标签，增加标签的数量，比如：
@@ -156,9 +218,21 @@
 <img class='avatar' src='./123.png'>
 ```
 
-#### img、audio、video标签
+### a、img、audio、video标签
+
+**`a`标签**
+
+- 给 `<a>` 标签加上title属性。
+- 外部链接页面间跳转，采用打开新窗口模式：`target="_blank"`。
+
+**`img`标签**
 
 - `img` 标签， 应该使用`alt`,用于图片不显示或者图片发生错误时的`文字提示`。
+- PC端`img`图片必须填写`width、height`属性。
+- `alt`不能为无意义字符，需要能表现出图片的含义。
+
+**`audio、video`标签**
+
 - `audio、video` 标签，加入文案和链接。
 ```html
 <img src="imgUrl" alt="图片" />
@@ -183,3 +257,17 @@
 - 使用iframe会增加页面额外请求，影响性能
 - 使用iframe不利于seo搜索引擎优化
 - 使用iframe不利于代码维护
+
+### 浏览器兼容
+
+**PC端**
+- 兼容IE9及以上、Firefox、chrome、QQ、360浏览器等浏览器
+- 不兼容IE9的情况下，需要在页面顶部加入提示，并对.browser-tips使用醒目的颜色标识样式
+```html
+<!--[if lt IE 9]><p class="browser-tips">您的浏览器版本过低，请升级浏览器获得更好的体验<p><![endif]-->
+```
+
+**移动端兼容**
+- 微信浏览器、android4.6，ios9.0以上
+
+### 更多规范请参考[页面前端规范](http://tgideas.qq.com/doc/frontend/spec/common/)
