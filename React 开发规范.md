@@ -198,4 +198,4 @@ class ShowText extends Component {
 - 文件夹统一采用小驼峰，checkBox。
 - 必须要有一个导出的index.js文件和样式
 
-![通用组件文件结构]('./component_file.png' '通用组件文件结构')
+![通用组件文件结构](./component_file.png "通用组件文件结构")
