@@ -204,3 +204,9 @@ class ShowText extends Component {
 - 必须要有一个导出的index.js文件和样式
 
 ![通用组件文件结构](./component_file.png "通用组件文件结构")
+
+### 更多react规范，请参考
+
+- [eslint](http://eslint.cn/)
+- [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)
+- [eslint-config-standard-react](https://github.com/standard/eslint-config-standard-react)
