@@ -152,6 +152,7 @@ class Demo extends Component {
 					readOnly
 					value={hopeFinishTime}
 					onClick={this.handleClickDatePicker} />
+				{/* 三元运算太长的话，按照这种写法*/}
 				{showDatePicker
 					? <DataPicker />
 					: null
@@ -166,23 +167,35 @@ class Demo extends Component {
 什么是纯组件，简单来说就是一个只用于展示的数据，完全不需要去改变`props`和`state`的组件，比如：
 ```js
 class Hello extends Component {
+	static defaultProps = {
+		text: 'better'
+	}
+
+	static propTypes = {
+		text: PropTypes.string
+	}
+
 	render () {
 		return (
-			<div>
-				{ this.props.txt }
-			</div>
+			<div>{this.props.text}</div>
 		)
 	}
 }
 
 import Hello from './Hello';
-class showTxt extends Component {
+class ShowText extends Component {
 	render () {
 		return (
-			<Hello txt={hello world!} />
+			<Hello text={`hello world!`} />
 		)
 	}
 }
 ```
 这个类的用法很简单，如果你有些组件是`纯组件`，那么把继承类从 `Component` 换成 `PureComponent` 即可。当组件更新时，如果组件的 `props` 和 `state` 都没发生改变，`render` 方法就不会触发，省去 `Virtual DOM` 的生成和比对过程，达到提升性能的目的。这种方式只适用于一些`简单的数据类型`。如果涉及到复杂数据类型`（引用类型数据）`,需要使用`immutable.js`插件,原理就是让原来的`props`发生变化。
 
+### 通用组件文件结构以及命名规则
+
+- 文件夹统一采用小驼峰，checkBox。
+- 必须要有一个导出的index.js文件和样式
+
+![通用组件文件结构]('./component_file.png' '通用组件文件结构')
