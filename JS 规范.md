@@ -439,3 +439,4 @@ async handleUserLogin () {
 	}
 }
 ```
+### 更多JS规范，请参考[standard规范](https://github.com/standard/standard/blob/master/docs/RULES-zhcn.md)
