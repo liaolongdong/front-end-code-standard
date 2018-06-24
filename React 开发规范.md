@@ -207,6 +207,5 @@ class ShowText extends Component {
 
 ### 更多react规范，请参考
 
-- [eslint](http://eslint.cn/)
 - [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)
 - [eslint-config-standard-react](https://github.com/standard/eslint-config-standard-react)
