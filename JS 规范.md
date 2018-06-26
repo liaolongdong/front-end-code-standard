@@ -430,20 +430,20 @@ fetch('/userLogin', {
 });
 
 _getServerConfig = async () => {
-        let result = await fetch('http://127.0.0.1:9999/common/categoryconfig/getserverconfig')
-            .then((res) => {
-                if (res.status === 200) {
-                    return res.json();
-                } else {
-                    const errJson = {
-                        status: '123456',
-                        msg: res.statusText || '服务器请求失败！'
-                    };
-                    return errJson;
-                }
-            });
-        console.log('result', result);
-    }
+	let result = await fetch('http://127.0.0.1:9999/common/categoryconfig/getserverconfig')
+		.then((res) => {
+			if (res.status === 200) {
+				return res.json();
+			} else {
+				const errJson = {
+					status: '123456',
+					msg: res.statusText || '服务器请求失败！'
+				};
+				return errJson;
+			}
+		});
+	console.log('result', result);
+}
 ```
 ### 更多JS规范，请参考
 
