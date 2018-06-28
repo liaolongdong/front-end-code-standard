@@ -433,7 +433,7 @@ fetch('/userLogin', {
 	})
 });
 
-_getServerConfig = async () => {
+getServerConfig = async () => {
 	let result = await fetch('http://127.0.0.1:9999/common/categoryconfig/getserverconfig')
 		.then((res) => {
 			if (res.status === 200) {
@@ -449,6 +449,77 @@ _getServerConfig = async () => {
 	console.log('result', result);
 }
 ```
+
+### eslint配置
+
+> .eslintrc.js文件配置
+```js
+// http://eslint.org/docs/user-guide/configuring
+
+module.exports = {
+    root: true,
+    parser: 'babel-eslint',
+    parserOptions: {
+        sourceType: 'module',
+        ecmaFeatures: {
+            jsx: true
+        }
+    },
+    env: {
+        es6: true,
+        commonjs: true,
+        browser: true,
+    },
+    extends: [
+        // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
+        'standard',
+        // https://github.com/feross/eslint-config-standard-react
+        'standard-react'
+    ],
+    // https://github.com/yannickcr/eslint-plugin-react
+    plugins: [
+        'react',
+        'babel',
+        'promise'
+    ],
+    'globals': {
+        '_': true,
+        'WeixinJSBridge': true
+    },
+    // add your custom rules here
+    'rules': {
+        /*********************** eslint自定义规则，如有新的添加请标明注释 *********************/
+        // allow paren-less arrow functions
+        'arrow-parens': 0, // 箭头函数用小括号括起来
+        // allow async-await
+        'generator-star-spacing': 0, // 生成器函数*的前后空格
+        // allow debugger during development
+        'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0, // 不允许在代码里添加debugger
+        'semi': ['error', 'always'], // 尾部分号
+        'no-eval': ['error', {'allowIndirect': true}], // 不实用eval()
+        'indent': ['error', 4], // 缩进
+        'react/jsx-indent': [2, 4], // jsx缩进
+        'react/jsx-indent-props': [2, 4], // jsx属性缩进
+        'linebreak-style': ['off', 'windows'], // 换行风格
+        'react/jsx-no-bind': 0, // JSX上不允许添加bind，避免资源浪费（建议新项目打开这个）
+        'quotes': ['error', 'single'], // 字符串必须使用单引号
+        'no-useless-constructor': 1, // 不必要的constructor
+        'react/jsx-boolean-value': 0, // 关闭如果属性值为 true, 可以直接省略
+        'prefer-promise-reject-errors': 1, // promise reject必须处理
+        'no-trailing-spaces': 0, // 不允许在语句后存在多余的空格
+        'import/no-webpack-loader-syntax': [0], // webpack配置不使用import引入(路由处)
+        'no-return-assign': [0], // return 语句中不能有赋值表达式
+        'comma-dangle': [0], // 对象字面量项尾不能有逗号
+        'no-mixed-operators': [0], // 禁止混合使用不同的操作符
+        'standard/no-callback-literal': [0], // Enforce callbacks always called with Node.js-style error first
+        'no-extra-boolean-cast': [0], // 多余的感叹号转布尔型
+        'react/no-did-update-set-state': [0], // 禁止在 componentDidUpdate 里面使用 setState
+        'no-unused-vars': ['warn'] // 禁止未使用过的变量
+    }
+};
+
+```
+
 ### 更多JS规范，请参考
 
 - [eslint](http://eslint.cn/)
