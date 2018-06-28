@@ -454,6 +454,7 @@ getServerConfig = async () => {
 
 > .eslintrc.js文件配置
 ```js
+
 // http://eslint.org/docs/user-guide/configuring
 
 module.exports = {
