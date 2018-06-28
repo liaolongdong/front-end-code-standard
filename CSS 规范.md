@@ -332,7 +332,7 @@ css属性，每一条属性独占一行
 
 ```css
 /* not good */
-.element p {
+.element p{
 	width:60px;
 	height :50px;
 }
@@ -348,7 +348,7 @@ css属性，每一条属性独占一行
 
 **z-index**
 - 自己写的`z-index`的值不能超过 100 (通用组的除外);
-- 页面中的元素内容的`z-index`不能超过10(popup poptip除外)，需要按照内容定义1 2 3 4不允许直接使用如1000，9999;
+- 页面中的元素内容的`z-index`不能超过10(popup poptip除外)，需要按照内容定义1 5 10 15不允许直接使用如1000，9999;
 - `modal， toast, notice, popup, poptip`等通用组件的`z-index`需要按照内容使用 99以下，10以上的值（11,12,13，也可以小于10），不允许直接使用1000，9999之类大值;
 
 **font-family**

@@ -5,6 +5,7 @@
 ### 绑定this
 
 **react官方推荐绑定`this`写法**
+
 ```js
 class Demo extends Component {
 	constructor (props) {
@@ -31,7 +32,7 @@ class Demo extends Component {
 }
 ```
 
-**方便简洁绑定`this`的写法**
+**方便简洁绑定`this`的写法（团队推荐使用）**
 
 统一使用箭头函数的形式绑定`this`。比如：
 ```js
@@ -44,7 +45,7 @@ deleteRow = () => {
 如果需要在方法中传递一些值，可以使用箭头函数的形式来实现:
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
-<button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
+// <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
 ```
 
 ### props验证方式和设置默认值
@@ -130,13 +131,13 @@ class Demo extends Component {
 		// code 
 	}
 
-	// 获取数据，统一使用_get开头
-	_getOrderDetailData = () => {
+	// 获取数据，统一使用get开头
+	getOrderDetailData = () => {
 		// code
 	}
 
-	// post提交表单，统一使用_post开头
-	_postSubmit = () => {
+	// post提交表单，统一使用post开头
+	postSubmit = () => {
 		// code
 	}
 

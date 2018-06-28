@@ -76,9 +76,12 @@ import CheckBox from './checkBox';
 // bad
 import CheckBox from './check_box';
 
-// good
+// good 通用组件可以使用该命名规则
 import CheckBox from './CheckBox';
 ```
+
+> **注意**：经公司团队讨论，还是统一使用小驼峰命名
+
 **文件名与函数名**
 
 如果文件默认导出函数时使用小驼峰式命名。`文件名`必须和`函数名`完全保持一致。
@@ -252,7 +255,8 @@ const totalScore = String(this.reviewScore);
 
 **数字**
 
-对数字使用 `parseInt `转换，并带上类型转换的基数。
+<!-- 对数字使用 `parseInt `转换，并带上类型转换的基数。 -->
+对数字统一使用 `Number()`转换。
 ```js
 const inputValue = '4';
 
@@ -266,10 +270,10 @@ const val = +inputValue;
 const val = parseInt(inputValue);
 
 // good
-const val = Number(inputValue);
-
-// good
 const val = parseInt(inputValue, 10);
+
+// good 推荐使用
+const val = Number(inputValue);
 ```
 
 **布尔**
@@ -281,10 +285,10 @@ const age = 0;
 const hasAge = new Boolean(age);
 
 // good
-const hasAge = Boolean(age);
-
-// good
 const hasAge = !!age;
+
+// good 推荐使用
+const hasAge = Boolean(age);
 ```
 
 ### 判断条件
@@ -357,7 +361,7 @@ function () {
 在花括号前放一个空格。
 ```js
 // bad
-function test () {
+function test() {
   	console.log('test');
 }
 
