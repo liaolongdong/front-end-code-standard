@@ -55,11 +55,11 @@
 
 ```html
 <!-- 字符编码 -->
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <!-- 优先使用 IE 最新版本和 Chrome -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <!-- 这个网页可以被搜索引擎搜索到 -->
-<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow" />
 <!-- 文档作者名称 -->
 <meta name="author" content="xiaoyi-better" />
 <!-- 版权信息 -->
@@ -74,21 +74,21 @@
 
 ```html
 <!-- 字符编码 -->
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <!-- width - viewport的宽度；initial-scale - 初始的缩放比例；minimum-scale - 允许用户缩放到的最小比例；maximum-scale - 允许用户缩放到的最大比例；user-scalable - 用户是否可以手动缩放；viewport-fit=cover - iphonex适配刘海问题兼容处理 -->
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
 <!-- 为了防止页面数字被识别为电话号码，可根据实际需要添加： -->
-<meta name="format-detection" content="telephone=no"> 
+<meta name="format-detection" content="telephone=no" /> 
 <!-- 让添加到主屏幕的网页再次打开时全屏展示，可添加：   -->
-<meta name="mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes" />
 <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes" />
 <!-- 设置苹果工具栏颜色 -->
-<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <!-- 添加到主屏后的标题（iOS 6 新增） -->
-<meta name="apple-mobile-web-app-title" content="标题">
+<meta name="apple-mobile-web-app-title" content="标题" />
 <!-- 这个网页可以被搜索引擎搜索到 -->
-<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow" />
 <!-- 文档作者名称 -->
 <meta name="author" content="xiaoyi-better" />
 <!-- 版权信息 -->
