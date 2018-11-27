@@ -54,22 +54,29 @@
 **PC端meta**
 
 ```html
+<!-- 字符编码 -->
 <meta charset="utf-8">
 <!-- 优先使用 IE 最新版本和 Chrome -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <!-- 这个网页可以被搜索引擎搜索到 -->
-<meta name="robots" content="all">
+<meta name="robots" content="index,follow">
+<!-- 文档作者名称 -->
 <meta name="author" content="xiaoyi-better" />
+<!-- 版权信息 -->
 <meta name="copyright" content="xiaoyi" />
+<!-- 包含页面内容的简短和精确的描述 -->
 <meta name="description" content="页面的描述内容" />
+<!-- 包含与逗号分隔的页面内容相关的关键字 -->
 <meta name="keywords" content="页面关键字" />
 ```
 
 **移动端meta**
 
 ```html
+<!-- 字符编码 -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<!-- width - viewport的宽度；initial-scale - 初始的缩放比例；minimum-scale - 允许用户缩放到的最小比例；maximum-scale - 允许用户缩放到的最大比例；user-scalable - 用户是否可以手动缩放；viewport-fit=cover - iphonex适配刘海问题兼容处理 -->
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <!-- 为了防止页面数字被识别为电话号码，可根据实际需要添加： -->
 <meta name="format-detection" content="telephone=no"> 
 <!-- 让添加到主屏幕的网页再次打开时全屏展示，可添加：   -->
@@ -80,12 +87,18 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
 <!-- 添加到主屏后的标题（iOS 6 新增） -->
 <meta name="apple-mobile-web-app-title" content="标题">
-<meta name="robots" content="all">
+<!-- 这个网页可以被搜索引擎搜索到 -->
+<meta name="robots" content="index,follow">
+<!-- 文档作者名称 -->
 <meta name="author" content="xiaoyi-better" />
+<!-- 版权信息 -->
 <meta name="copyright" content="xiaoyi" />
+<!-- 包含页面内容的简短和精确的描述 -->
 <meta name="description" content="页面的描述内容" />
+<!-- 包含与逗号分隔的页面内容相关的关键字 -->
 <meta name="keywords" content="页面关键字" />
 ```
+更多meta标签详情可查看：[meta MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta)或者[HTML meta标签总结与属性使用介绍](https://www.cnblogs.com/wangyang108/p/5995379.html)
 
 ### 引入 CSS 和 JavaScript 文件
 
