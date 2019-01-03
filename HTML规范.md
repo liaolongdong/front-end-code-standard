@@ -39,9 +39,9 @@
 	<!-- 页面名称-产品中文全称-官方网站-产品名称-产品slogan，28个汉字以内 -->
     <title>Document</title>
 	<!-- 页面关键字(keywords) keywords为产品名、专题名、专题相关名词，之间用英文半角逗号隔开 -->
-	<meta name="keywords" content="家具拆装,家具配送,家具安装,家具维修"/>
+	<meta name="keywords" content="页面关键字"/>
 	<!-- 页面描述(description) 不超过150个字符，描述内容要和页面内容相关 -->
-	<meta name="description" content="万师傅是全国专业家居售后服务网站,提供【家具】【晾衣架】【灯具】【卫浴】【墙纸地毯】的拆装,搬运等服务担保交易;师傅覆盖全国600多个城市,快速,便捷,省钱,有保障！"/>
+	<meta name="description" content="页面描述"/>
 </head>
 <body>
     
